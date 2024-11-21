@@ -1,0 +1,20 @@
+#Pablo Pereira Timón
+version: '3'
+services:
+  backend:
+    image: gzpereira/calculadora_docker:backend  # Usa la imagen desde Docker Hub
+    ports:
+      - "3000:80"             # Mapea el puerto 80 del contenedor al puerto 3000 del host
+    networks:
+      - app-network
+
+  frontend:
+    image: gzpereira/calculadora_docker:frontend  # Usa la imagen desde Docker Hub
+    ports:
+      - "8080:80"            # Mapea el puerto 80 del contenedor al puerto 80 del host
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
